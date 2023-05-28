@@ -95,62 +95,104 @@ import Ranking from "./Ranking.vue";
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-auto mb-4">
-                        <div class="card" style="width: 18rem">
+                        <div
+                            class="card mb-4 rounded-3 shadow-sm"
+                            style="width: 18rem"
+                        >
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Plano São</h4>
+                            </div>
                             <img
                                 src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                class="card-img-top"
                                 alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
-                                <a href="#" class="btn btn-primary"
-                                    >Go somewhere</a
+                                <h1 class="card-title pricing-card-title">
+                                    R$ 100<small
+                                        class="text-body-secondary fw-light"
+                                        >,00</small
+                                    >
+                                </h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>20 users included</li>
+                                    <li>10 GB of storage</li>
+                                    <li>Priority email support</li>
+                                    <li>Help center access</li>
+                                </ul>
+                                <!-- <button
+                                    type="button"
+                                    class="w-100 btn btn-lg btn-primary"
                                 >
+                                    Get started
+                                </button> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-auto mb-4">
-                        <div class="card" style="width: 18rem">
+                        <div
+                            class="card mb-4 rounded-3 shadow-sm"
+                            style="width: 18rem"
+                        >
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Plano Bebum</h4>
+                            </div>
                             <img
                                 src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                class="card-img-top"
                                 alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
-                                <a href="#" class="btn btn-primary"
-                                    >Go somewhere</a
+                                <h1 class="card-title pricing-card-title">
+                                    R$ 100<small
+                                        class="text-body-secondary fw-light"
+                                        >,00</small
+                                    >
+                                </h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>20 users included</li>
+                                    <li>10 GB of storage</li>
+                                    <li>Priority email support</li>
+                                    <li>Help center access</li>
+                                </ul>
+                                <!-- <button
+                                    type="button"
+                                    class="w-100 btn btn-lg btn-primary"
                                 >
+                                    Get started
+                                </button> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-auto mb-4">
-                        <div class="card" style="width: 18rem">
+                        <div
+                            class="card mb-4 rounded-3 shadow-sm"
+                            style="width: 18rem"
+                        >
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Plano Kids</h4>
+                            </div>
                             <img
                                 src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                class="card-img-top"
                                 alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card
-                                    title and make up the bulk of the card's
-                                    content.
-                                </p>
-                                <a href="#" class="btn btn-primary"
-                                    >Go somewhere</a
+                                <h1 class="card-title pricing-card-title">
+                                    R$ 100<small
+                                        class="text-body-secondary fw-light"
+                                        >,00</small
+                                    >
+                                </h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>20 users included</li>
+                                    <li>10 GB of storage</li>
+                                    <li>Priority email support</li>
+                                    <li>Help center access</li>
+                                </ul>
+                                <!-- <button
+                                    type="button"
+                                    class="w-100 btn btn-lg btn-primary"
                                 >
+                                    Get started
+                                </button> -->
                             </div>
                         </div>
                     </div>
