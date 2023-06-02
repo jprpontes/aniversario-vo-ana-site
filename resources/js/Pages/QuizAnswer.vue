@@ -1,9 +1,17 @@
 <script setup>
-const props = defineProps(['answer', 'selected'])
+const props = defineProps(["index", "answer", "selected"]);
+
+const getOption = (index) => {
+    return ["A", "B", "C", "D", "E"][index];
+};
 </script>
 
 <template>
-    <div class="quiz-answer" :class="{'selected': props.selected ? true : false}">
+    <div
+        class="quiz-answer"
+        :class="{ selected: props.selected ? true : false }"
+    >
+        <span class="answer-option">{{ getOption(props.index) }}</span>
         <span class="answer-text">{{ props.answer.description }}</span>
     </div>
 </template>
@@ -27,8 +35,22 @@ const props = defineProps(['answer', 'selected'])
     }
 }
 
+.answer-option {
+    width: 31px;
+    height: 31px;
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary;
+    color: white;
+    margin: 0px 15px;
+}
+
 .answer-text {
-    margin: 0px 20px;
+    margin: 0px 5px;
 }
 
 .selected {

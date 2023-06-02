@@ -4,7 +4,7 @@ import QuizAnswer from "./QuizAnswer.vue";
 
 const data = reactive({
     question: {},
-    selectedAnswer: null
+    selectedAnswer: null,
 });
 
 const getQuestion = async () => {
@@ -18,7 +18,11 @@ const getQuestion = async () => {
 };
 
 const selectAnswer = (event, answer) => {
-    data.selectedAnswer = answer;
+    if (answer.id == data.selectedAnswer?.id) {
+        data.selectedAnswer = null;
+    } else {
+        data.selectedAnswer = answer;
+    }
 };
 
 onMounted(() => {
@@ -31,16 +35,21 @@ onMounted(() => {
         <div class="row">
             <h2 class="quiz-question">{{ data.question?.description }}</h2>
         </div>
-        <div v-for="answer in data.question?.answers" :key="answer.id" class="row">
+        <div
+            v-for="(answer, index) in data.question?.answers"
+            :key="answer.id"
+            class="row"
+        >
             <div class="col">
                 <QuizAnswer
+                    :index="index"
                     :answer="answer"
                     :selected="data.selectedAnswer?.id == answer.id"
                     @click="selectAnswer($event, answer)"
                 />
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="data.selectedAnswer">
             <div class="col-auto ms-auto m-3">
                 <button class="btn btn-success btn-lg">Confirmar</button>
             </div>
