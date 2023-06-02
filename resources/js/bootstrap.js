@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from "lodash";
 window._ = _;
 
 /**
@@ -7,15 +7,20 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-import axios from 'axios';
-window.axios = axios;
+import axios from "axios";
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios = axios.create({
+    baseURL: "https://aniversario-vo-ana-site.test/api/",
+    // timeout: 1000,
+    // headers: {'X-Custom-Header': 'foobar'}
+});
 
-import * as Popper from '@popperjs/core'
-window.Popper = Popper
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
+import * as Popper from "@popperjs/core";
+window.Popper = Popper;
 import "bootstrap";
-import '../sass/app.scss'
+import "../sass/app.scss";
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
