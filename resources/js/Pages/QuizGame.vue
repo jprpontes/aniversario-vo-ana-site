@@ -8,10 +8,18 @@ const data = reactive({
 });
 
 const getQuestion = async () => {
+    data.selectedAnswer = null;
+    data.question = {};
+
     try {
         const response = await axios.get("/quiz/question");
-        data.question.description = response.data.question.description;
-        data.question.answers = response.data.question.answers;
+
+        if (response.data.status_code == 'COMPLETED') {
+            //Exibir parabéns para o jogador.
+            return;
+        }
+
+        data.question = response.data.data.question;
     } catch (error) {
         console.error(error);
     }
@@ -25,6 +33,18 @@ const selectAnswer = (event, answer) => {
     }
 };
 
+const confirm = async () => {
+    try {
+        const response = await axios.post("/quiz/answer-question", {
+            question_id: data.question.id,
+            answer_id: data.selectedAnswer.id,
+        });
+        getQuestion();
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 onMounted(() => {
     getQuestion();
 });
@@ -33,7 +53,9 @@ onMounted(() => {
 <template>
     <div class="container quiz-component mx-auto">
         <div class="row">
-            <h2 class="quiz-question">{{ data.question?.description }}</h2>
+            <div class="col">
+                <h2 class="quiz-question">{{ data.question?.description }}</h2>
+            </div>
         </div>
         <div
             v-for="(answer, index) in data.question?.answers"
@@ -51,7 +73,9 @@ onMounted(() => {
         </div>
         <div class="row" v-if="data.selectedAnswer">
             <div class="col-auto ms-auto m-3">
-                <button class="btn btn-success btn-lg">Confirmar</button>
+                <button class="btn btn-success btn-lg" @click="confirm">
+                    Confirmar
+                </button>
             </div>
         </div>
     </div>

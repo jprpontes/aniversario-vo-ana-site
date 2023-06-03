@@ -64,9 +64,9 @@ import Ranking from "./Ranking.vue";
                             quiz com histórias incríveis.
                         </p>
                         <br />
-                        <button class="btn btn-secondary btn-lg">
+                        <a href="#/quiz" class="btn btn-secondary btn-lg">
                             Acessar o Quiz
-                        </button>
+                        </a>
                     </div>
                     <div
                         class="col-12 col-md-6 col-lg-4 ms-auto ranking-container"

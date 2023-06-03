@@ -1,7 +1,10 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
 import Home from "./Home.vue";
 import Quiz from "./Quiz.vue";
+
+const store = useStore();
 
 const routes = {
     "/": Home,
@@ -16,6 +19,10 @@ window.addEventListener("hashchange", () => {
 
 const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || "/"] || NotFound;
+});
+
+onMounted(() => {
+    store.dispatch("checkAuth");
 });
 </script>
 

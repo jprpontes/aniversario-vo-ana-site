@@ -1,12 +1,14 @@
 import _ from "lodash";
 window._ = _;
 
+import moment from "moment";
+window.moment = moment;
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 import axios from "axios";
 
 window.axios = axios.create({
@@ -16,6 +18,22 @@ window.axios = axios.create({
 });
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+window.axios.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
+window.axios.interceptors.response.use(
+    (response) => {
+        return Promise.resolve(response);
+    },
+    (error) => {
+        if (error.response.status === 401) {
+            window.location = '/';
+        }
+        return Promise.reject(error);
+    }
+);
 
 import * as Popper from "@popperjs/core";
 window.Popper = Popper;
