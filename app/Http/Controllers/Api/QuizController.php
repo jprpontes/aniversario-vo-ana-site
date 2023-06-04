@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Integration\QuestionResource;
-use App\Http\Resources\Integration\StoryResource;
+use App\Http\Resources\AnswerResource;
+use App\Http\Resources\QuestionResource;
+use App\Http\Resources\StoryResource;
 use App\Models\Answer;
 use App\Models\AnsweredQuestion;
 use App\Models\Question;
@@ -41,7 +42,7 @@ class QuizController extends Controller
     public function story(int $question_id)
     {
         $question = Question::findOrFail($question_id);
-        return $this->sendResponse('Estória encontrada com sucesso!', ['story' => StoryResource::make($question->story)]);
+        return $this->sendResponse('História encontrada com sucesso!', ['story' => StoryResource::make($question->story)]);
     }
 
     public function answerQuestion(Request $request)
@@ -73,6 +74,9 @@ class QuizController extends Controller
             'user_id'     => auth()->user()->id,
         ]);
 
-        return $this->sendResponse('Resposta salva!', ['correct' => $answer->correct ? 1 : 0 ]);
+        return $this->sendResponse('Resposta salva!', [
+            'correctAnswer' => AnswerResource::make($question->correctAnswer),
+            'story'         => StoryResource::make($question->story)
+        ]);
     }
 }

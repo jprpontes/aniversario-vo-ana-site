@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, reactive } from "vue";
 import QuizAuthLogin from "./QuizAuthLogin.vue";
+import QuizAuthSignUp from "./QuizAuthSignUp.vue";
 
 const step = {
     INIT: "init",
@@ -51,7 +52,14 @@ onMounted(() => {
             </div>
         </div>
     </div>
-    <QuizAuthLogin v-else-if="data.state == step.LOGIN" />
+    <QuizAuthLogin
+        v-else-if="data.state == step.LOGIN"
+        @back="changeStep($event, step.INIT)"
+    />
+    <QuizAuthSignUp
+        v-else-if="data.state == step.SIGNUP"
+        @back="changeStep($event, step.INIT)"
+    />
 </template>
 
 <style lang="scss" scoped>

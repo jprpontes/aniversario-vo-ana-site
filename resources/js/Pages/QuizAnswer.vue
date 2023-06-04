@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(["index", "answer", "selected"]);
+const props = defineProps(["index", "answer", "correctAnswer", "selected"]);
 
 const getOption = (index) => {
     return ["A", "B", "C", "D", "E"][index];
@@ -9,7 +9,12 @@ const getOption = (index) => {
 <template>
     <div
         class="quiz-answer"
-        :class="{ selected: props.selected ? true : false }"
+        :class="{
+            selected: props.selected ? true : false,
+            correct: props.answer.id == props?.correctAnswer?.id,
+            incorrect:
+                props.selected && props?.correctAnswer && props.answer.id != props?.correctAnswer?.id,
+        }"
     >
         <span class="answer-option">{{ getOption(props.index) }}</span>
         <span class="answer-text">{{ props.answer.description }}</span>
@@ -29,7 +34,7 @@ const getOption = (index) => {
     cursor: pointer;
     border-radius: 10px;
 
-    &:not(.selected):hover {
+    &:not(.selected, .correct, .incorrect):hover {
         background-color: darken($color: $bg-white-1, $amount: 2%);
         border-color: darken($color: $bg-white-2, $amount: 2%);
     }
@@ -56,5 +61,15 @@ const getOption = (index) => {
 .selected {
     background-color: $primary;
     border-color: $primary;
+}
+
+.correct {
+    background-color: $success;
+    border-color: $success;
+}
+
+.incorrect {
+    background-color: $danger;
+    border-color: $danger;
 }
 </style>
