@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
     <!-- <a href="#/">Home</a> | <a href="#/about">About</a> |
     <a href="#/non-existent-path">Broken Link</a> -->
-    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Aniversário Ana Maria Pontes</a>
             <button
