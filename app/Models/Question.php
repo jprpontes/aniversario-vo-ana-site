@@ -15,6 +15,7 @@ class Question extends Model
 
     protected $fillable = [
         'description',
+        'points',
         'story_id',
     ];
 

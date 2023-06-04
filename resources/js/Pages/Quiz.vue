@@ -48,5 +48,8 @@ const signOut = async () => {
 @import "../../sass/variables";
 .quiz-section {
     margin-top: 56px;
+    /* height: calc(100vh - 56px); */
+    /* display: flex; */
+    /* align-items: center; */
 }
 </style>

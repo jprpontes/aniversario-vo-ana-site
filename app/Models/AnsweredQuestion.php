@@ -13,5 +13,6 @@ class AnsweredQuestion extends Model
         'question_id',
         'answer_id',
         'user_id',
+        'points'
     ];
 }

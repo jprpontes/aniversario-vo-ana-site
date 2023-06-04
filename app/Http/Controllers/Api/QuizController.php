@@ -9,6 +9,7 @@ use App\Http\Resources\StoryResource;
 use App\Models\Answer;
 use App\Models\AnsweredQuestion;
 use App\Models\Question;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -72,11 +73,26 @@ class QuizController extends Controller
             'question_id' => $question->id,
             'answer_id'   => $answer->id,
             'user_id'     => auth()->user()->id,
+            'points'      => $answer->correct ? $question->points : 0
         ]);
 
         return $this->sendResponse('Resposta salva!', [
             'correctAnswer' => AnswerResource::make($question->correctAnswer),
             'story'         => StoryResource::make($question->story)
         ]);
+    }
+
+    public function ranking()
+    {
+        $ranking = DB::select("
+            SELECT u.id, u.name, SUM(COALESCE(a.points, 0)) points
+            FROM users u
+            LEFT JOIN answered_questions a
+            ON a.user_id = u.id
+            GROUP BY u.id
+            ORDER BY SUM(COALESCE(a.points, 0)) DESC, u.name ASC
+        ");
+
+        return $this->sendResponse('Ranking retornado com sucesso!', [ 'ranking' => $ranking ]);
     }
 }

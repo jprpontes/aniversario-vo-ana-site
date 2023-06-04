@@ -34,3 +34,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('/answer-question', [QuizController::class, 'answerQuestion']);
     });
 });
+
+Route::get('/quiz/ranking', [QuizController::class, 'ranking']);

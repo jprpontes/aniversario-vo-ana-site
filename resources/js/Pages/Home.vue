@@ -272,7 +272,7 @@ footer {
 
 .ranking-container {
     /* margin-top: -100px; */
-    height: 300px;
+    height: 330px;
 }
 
 .location-section {

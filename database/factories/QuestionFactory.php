@@ -19,6 +19,7 @@ class QuestionFactory extends Factory
     {
         return [
             'description' => fake()->realText(20),
+            'points'      => 3,
             'story_id'    => function () { return Story::factory()->create(); },
         ];
     }

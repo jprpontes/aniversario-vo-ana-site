@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('question_id')->nullable(false);
             $table->unsignedBigInteger('answer_id')->nullable(false);
             $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->integer('points')->nullable(false);
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions');

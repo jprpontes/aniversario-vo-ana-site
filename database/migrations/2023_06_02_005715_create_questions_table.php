@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('description')->nullable(false);
+            $table->integer('points')->nullable(false);
             $table->unsignedBigInteger('story_id')->nullable(false);
             $table->timestamps();
             $table->softDeletes();
