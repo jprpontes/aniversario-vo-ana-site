@@ -12,7 +12,7 @@ window.moment = moment;
 import axios from "axios";
 
 window.axios = axios.create({
-    baseURL: "https://aniversario-vo-ana-site.test/api/",
+    baseURL: `${window.location.origin}/api/`,
     // timeout: 1000,
     // headers: {'X-Custom-Header': 'foobar'}
 });
