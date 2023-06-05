@@ -96,13 +96,13 @@ onMounted(() => {
     >
         <div class="row">
             <div class="col">
-                <h2 class="quiz-question">{{ data.question?.description }}</h2>
+                <h2 class="quiz-question animate__animated animate__bounceInLeft">{{ data.question?.description }}</h2>
             </div>
         </div>
         <div
             v-for="(answer, index) in data.question?.answers"
             :key="answer.id"
-            class="row"
+            class="row animate__animated animate__bounceInRight"
         >
             <div class="col">
                 <QuizAnswer

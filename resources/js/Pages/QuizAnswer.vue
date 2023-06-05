@@ -1,5 +1,19 @@
 <script setup>
+import { computed } from "@vue/reactivity";
+
 const props = defineProps(["index", "answer", "correctAnswer", "selected"]);
+
+const isCorrect = computed(() => {
+    return props.answer.id == props?.correctAnswer?.id;
+});
+
+const isIncorrect = computed(() => {
+    return (
+        props.selected &&
+        props?.correctAnswer &&
+        props.answer.id != props?.correctAnswer?.id
+    );
+});
 
 const getOption = (index) => {
     return ["A", "B", "C", "D", "E"][index];
@@ -8,12 +22,13 @@ const getOption = (index) => {
 
 <template>
     <div
-        class="quiz-answer"
+        class="quiz-answer animate__animated"
         :class="{
             selected: props.selected ? true : false,
-            correct: props.answer.id == props?.correctAnswer?.id,
-            incorrect:
-                props.selected && props?.correctAnswer && props.answer.id != props?.correctAnswer?.id,
+            correct: isCorrect,
+            animate__flash: isCorrect,
+            incorrect: isIncorrect,
+            animate__shakeX: isIncorrect,
         }"
     >
         <span class="answer-option">{{ getOption(props.index) }}</span>

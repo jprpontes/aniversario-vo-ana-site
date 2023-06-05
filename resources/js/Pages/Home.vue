@@ -54,7 +54,7 @@ import Ranking from "./Ranking.vue";
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h3 class="mt-5 mb-3">Quiz da família</h3>
+                        <h3 class="mt-5 mb-3">Quiz da vó Ana</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -257,7 +257,7 @@ footer {
 .curve-1 {
     background-color: $bg-white-1;
     fill: $primary;
-    margin-top: -60px;
+    margin-top: -30px;
 }
 
 .curve-2 {

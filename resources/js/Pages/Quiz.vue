@@ -5,12 +5,13 @@ import QuizAuth from "./QuizAuth.vue";
 import QuizWelcome from "./QuizWelcome.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 
 const store = useStore();
 
 const data = reactive({
     playing: false,
+    mounted: false,
 });
 
 const token = computed(() => {
@@ -31,25 +32,40 @@ const signOut = async () => {
         data.playing = false;
     }
 };
+
+onMounted(() => {
+    data.mounted = true;
+});
 </script>
 
 <template>
     <div>
         <Head title="Aniversário Ana Maria Pontes" />
-        <section class="quiz-section">
+        <section class="quiz-section" v-if="data.mounted">
+            <!-- <Transition name="effect" mode="out-in"> -->
             <QuizGame v-if="token && data.playing" />
             <QuizWelcome v-else-if="token" @play="play" @signOut="signOut" />
             <QuizAuth v-else />
+            <!-- </Transition> -->
         </section>
     </div>
 </template>
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+
 .quiz-section {
     margin-top: 56px;
     /* height: calc(100vh - 56px); */
     /* display: flex; */
     /* align-items: center; */
+}
+.effect-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.effect-enter-from {
+    transform: translateX(20px);
+    opacity: 0;
 }
 </style>

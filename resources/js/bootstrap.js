@@ -41,6 +41,7 @@ import * as Popper from "@popperjs/core";
 window.Popper = Popper;
 import "bootstrap";
 import "../sass/app.scss";
+import 'animate.css';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

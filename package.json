@@ -16,6 +16,7 @@
     "dependencies": {
         "@inertiajs/vue3": "^1.0.7",
         "@vitejs/plugin-vue": "^4.2.3",
+        "animate.css": "^4.1.1",
         "moment": "^2.29.4",
         "sass": "^1.62.1",
         "vue-cookies": "^1.8.3",

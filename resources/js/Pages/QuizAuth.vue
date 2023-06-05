@@ -47,7 +47,7 @@ onMounted(() => {
                     class="btn btn-lg btn-outline-secondary w-100 btn-signup"
                     @click="changeStep($event, step.SIGNUP)"
                 >
-                    Criar novo jogador
+                    Novo jogador
                 </button>
             </div>
         </div>
@@ -72,6 +72,7 @@ onMounted(() => {
 
 .title {
     margin: 40px 10px 30px 10px;
+    text-align: center;
 }
 
 .btn-login {

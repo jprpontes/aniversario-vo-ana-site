@@ -125,7 +125,7 @@ onMounted(() => {
                     class="btn btn-lg btn-primary w-100 btn-signup"
                     @click="signup"
                 >
-                    Criar jogar
+                    Criar jogador
                 </button>
             </div>
         </div>
