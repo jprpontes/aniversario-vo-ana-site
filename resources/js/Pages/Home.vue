@@ -54,19 +54,29 @@ import Ranking from "./Ranking.vue";
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h3 class="mt-5 mb-3">Quiz da vó Ana</h3>
+                        <h3 class="mt-5 mb-3">Quiz da vovó</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-4 mb-md-0">
-                        <p>
-                            Mostre que você conhece tudo sobre a família neste
-                            quiz com histórias incríveis.
-                        </p>
-                        <br />
-                        <a href="#/quiz" class="btn btn-secondary btn-lg">
-                            Acessar o Quiz
-                        </a>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Mostre que você conhece tudo sobre a família
+                                    neste quiz com histórias incríveis.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-auto">
+                                <a
+                                    href="#/quiz"
+                                    class="btn btn-secondary btn-lg w-100 text-white btn-quiz btn-go-to-quiz"
+                                >
+                                    ACESSAR O QUIZ
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div
                         class="col-12 col-md-6 col-lg-4 ms-auto ranking-container"
@@ -277,6 +287,12 @@ footer {
 
 .location-section {
     background-color: $bg-white-1;
+}
+
+.btn-go-to-quiz {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .gmap_canvas {

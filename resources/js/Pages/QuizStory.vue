@@ -24,26 +24,24 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto">
         <div class="row">
-            <div class="col-auto mx-auto">
-                <h2 class="title">
-                    {{ props.story.name }}
-                </h2>
+            <div class="col-auto">
+                <h1 class="title">{{ props.story.name }}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-auto mx-auto">
+            <div class="col-auto">
                 <p class="description">
                     {{ props.story.description }}
                 </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto">
+            <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-primary w-100 btn-next"
+                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white"
                     @click="nextQuestion"
                 >
-                    Próxima questão
+                    PRÓXIMA QUESTÃO
                 </button>
             </div>
         </div>
@@ -52,21 +50,18 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+@import "../../sass/custom";
 
 .quiz-auth {
-    margin: 20px;
     max-width: 900px;
 }
 
 .title {
-    margin: 40px 10px 30px 10px;
+    margin: 50px 10px 10px 10px;
 }
 
 .description {
-    margin: 0px 10px 30px 10px;
-}
-
-.btn-next {
-    margin: 5px;
+    margin: 10px 10px 50px 10px;
+    font-weight: normal;
 }
 </style>

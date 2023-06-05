@@ -27,24 +27,38 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto">
         <div class="row">
-            <div class="col-auto mx-auto">
-                <h2 class="title">Olá {{ user.name }}!</h2>
+            <div class="col-auto">
+                <h1 class="title">
+                    OLÁ <span class="text-secondary">{{ user.name }}</span
+                    >!
+                </h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto">
+            <div class="col-auto">
+                <h2 class="subtitle">
+                    Pronto para testar seus conhecimentos? Clique no botão
+                    abaixo para iniciar.
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 mx-auto el-quiz-container">
                 <button
-                    class="btn btn-lg btn-primary w-100 btn-login"
+                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white"
                     @click="play"
                 >
-                    Jogar
+                    JOGAR
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 mx-auto">
-                <button class="btn btn-lg btn-link w-100" @click="signOut">
-                    Sair
+                <button
+                    class="btn btn-lg btn-link text-secondary w-100 btn-quiz"
+                    @click="signOut"
+                >
+                    SAIR
                 </button>
             </div>
         </div>
@@ -53,23 +67,20 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+@import "../../sass/custom";
 
 .quiz-auth {
-    margin: 20px;
     max-width: 900px;
 }
 
 .title {
-    margin: 40px 10px 30px 10px;
+    margin: 50px 10px 10px 10px;
+    text-transform: uppercase;
 }
 
-.btn-login {
-    margin: 5px;
-    height: 60px;
-}
-
-.btn-signup {
-    margin: 5px;
-    height: 60px;
+.subtitle {
+    margin: 10px 10px 50px 10px;
+    font-weight: normal;
+    font-size: 22px;
 }
 </style>

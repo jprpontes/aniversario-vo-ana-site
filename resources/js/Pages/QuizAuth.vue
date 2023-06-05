@@ -25,29 +25,36 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto" v-if="data.state == step.INIT">
         <div class="row">
-            <div class="col-auto mx-auto">
-                <h2 class="title">
-                    Para jogar o quiz faça login ou crie um novo jogador.
+            <div class="col-auto">
+                <h1 class="title">QUIZ DA VOVÓ</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <h2 class="subtitle">
+                    Será que você sabe tudo sobre Ana Maria Pontes, nossa
+                    querida vó Ana? Prove que você já a conhece bem e aprenda
+                    mais neste jogo de perguntas e respostas.
                 </h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-primary w-100 btn-login"
-                    @click="changeStep($event, step.LOGIN)"
+                    class="btn btn-lg btn-secondary btn-quiz w-100 text-white"
+                    @click="changeStep($event, step.SIGNUP)"
                 >
-                    Login
+                    NOVO JOGADOR
                 </button>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-outline-secondary w-100 btn-signup"
-                    @click="changeStep($event, step.SIGNUP)"
+                    class="btn btn-lg btn-outline-secondary btn-quiz w-100"
+                    @click="changeStep($event, step.LOGIN)"
                 >
-                    Novo jogador
+                    JÁ TENHO CONTA
                 </button>
             </div>
         </div>
@@ -64,22 +71,19 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+@import "../../sass/custom";
 
 .quiz-auth {
-    margin: 20px;
     max-width: 900px;
 }
 
 .title {
-    margin: 40px 10px 30px 10px;
-    text-align: center;
+    margin: 50px 10px 10px 10px;
 }
 
-.btn-login {
-    height: 60px;
-}
-
-.btn-signup {
-    height: 60px;
+.subtitle {
+    margin: 10px 10px 50px 10px;
+    font-weight: normal;
+    font-size: 22px;
 }
 </style>

@@ -39,16 +39,30 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto">
         <div class="row">
-            <div class="col-auto mx-auto">
-                <h2 class="title">
-                    Parabéns {{ user.name }}, você completou o quiz!
+            <div class="col-auto">
+                <h1 class="title">
+                    Parabéns <span class="text-secondary">{{ user.name }}</span
+                    >, você completou o quiz!
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <h2 class="subtitle">
+                    Agora tenho certeza que você passou a conhecer mais a nossa
+                    querida vó Ana, mas lembre-se que você pode conhecê-la ainda
+                    mais e saber de mais histórias passando lá e tomando um bom
+                    café com biscoito de polvilho.
                 </h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto">
-                <a href="#/" class="btn btn-lg btn-primary w-100 btn-back-home">
-                    Voltar para a página principal
+            <div class="col-12 col-md-6 mx-auto my-2 el-quiz-container">
+                <a
+                    href="#/"
+                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white btn-back-home"
+                >
+                    VOLTAR PARA A PÁGINA PRINCIPAL
                 </a>
             </div>
         </div>
@@ -57,22 +71,26 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+@import "../../sass/custom";
 
 .quiz-auth {
-    margin: 20px;
     max-width: 900px;
 }
 
 .title {
-    margin: 40px 10px 30px 10px;
+    margin: 50px 10px 10px 10px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 10px 10px 50px 10px;
+    font-weight: normal;
+    font-size: 22px;
 }
 
 .btn-back-home {
-    margin: 5px;
-}
-
-.btn-signup {
-    margin: 5px;
-    height: 60px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 </style>

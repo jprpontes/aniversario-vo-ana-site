@@ -56,8 +56,8 @@ onMounted(() => {
 
 .quiz-section {
     margin-top: 56px;
-    /* height: calc(100vh - 56px); */
-    /* display: flex; */
+    /* height: 100vh; */
+    display: flex;
     /* align-items: center; */
 }
 .effect-enter-active {

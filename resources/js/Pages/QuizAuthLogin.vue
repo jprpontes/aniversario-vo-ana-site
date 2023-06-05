@@ -70,25 +70,33 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto">
         <div class="row">
-            <div class="col-auto mx-auto">
-                <h2 class="title">Login.</h2>
+            <div class="col-auto">
+                <h1 class="title">ENTRAR</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-auto">
+                <h2 class="subtitle">
+                    Informe o apelido que você cadastrou no primeiro acesso e
+                    sua data de nascimento.
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 mx-auto my-1 el-quiz-container">
                 <input
                     type="text"
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg input-quiz"
                     placeholder="Apelido"
                     v-model="data.login.nickname"
                 />
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-12 col-md-4 mx-auto my-1 el-quiz-container">
                 <input
                     type="text"
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg input-quiz"
                     placeholder="Data de Nascimento"
                     v-mask="'##/##/####'"
                     v-model="data.login.date_of_birth"
@@ -103,22 +111,22 @@ onMounted(() => {
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-primary w-100 btn-login"
+                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white"
                     @click="login"
                 >
-                    Entrar
+                    ENTRAR
                 </button>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 mx-auto my-2">
+            <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-outline-primary w-100 btn-back"
+                    class="btn btn-lg btn-link text-secondary w-100 btn-quiz"
                     @click="back"
                 >
-                    Voltar
+                    VOLTAR
                 </button>
             </div>
         </div>
@@ -127,21 +135,19 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
+@import "../../sass/custom";
 
 .quiz-auth {
-    margin: 20px;
     max-width: 900px;
 }
 
 .title {
-    margin: 40px 10px 30px 10px;
+    margin: 50px 10px 10px 10px;
 }
 
-.btn-login {
-    height: 60px;
-}
-
-.btn-signup {
-    height: 60px;
+.subtitle {
+    margin: 10px 10px 50px 10px;
+    font-weight: normal;
+    font-size: 22px;
 }
 </style>
