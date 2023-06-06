@@ -6,6 +6,7 @@ import QuizWelcome from "./QuizWelcome.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/reactivity";
 import { onMounted, reactive } from "vue";
+import Divider from "./Divider.vue";
 
 const store = useStore();
 
@@ -40,7 +41,7 @@ onMounted(() => {
 
 <template>
     <div>
-        <Head title="Aniversário Ana Maria Pontes" />
+        <Head title="Níver vó Ana" />
         <section class="quiz-section" v-if="data.mounted">
             <!-- <Transition name="effect" mode="out-in"> -->
             <QuizGame v-if="token && data.playing" />
@@ -48,6 +49,7 @@ onMounted(() => {
             <QuizAuth v-else />
             <!-- </Transition> -->
         </section>
+        <Divider direction="UP" color="#fed54a" style="position:fixed; bottom: 0;" />
     </div>
 </template>
 
@@ -55,10 +57,10 @@ onMounted(() => {
 @import "../../sass/variables";
 
 .quiz-section {
-    margin-top: 56px;
     /* height: 100vh; */
     display: flex;
     /* align-items: center; */
+    margin-bottom: 10px;
 }
 .effect-enter-active {
     transition: all 0.3s ease-out;

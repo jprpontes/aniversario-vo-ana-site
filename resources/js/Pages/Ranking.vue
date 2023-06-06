@@ -50,10 +50,11 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    background-color: $bg-white-2;
+    background-color: $bg-white-3;
     border: 3px solid #fff;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .scores {
@@ -83,6 +84,7 @@ onMounted(() => {
     border-bottom: 2px solid white;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
+    background-color: $bg-white-2;
 }
 
 .position {

@@ -119,14 +119,14 @@ onMounted(() => {
             v-if="data.state == step.QUESTION && data.selectedAnswer"
         >
             <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
-                <button class="btn btn-success btn-lg w-100 btn-quiz" @click="confirm">
+                <button class="btn btn-success btn-lg w-100" @click="confirm">
                     Confirmar
                 </button>
             </div>
         </div>
         <div class="row" v-else-if="data.state == step.QUESTION_RESULT">
             <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
-                <button class="btn btn-success btn-lg w-100 btn-quiz" @click="showStory">
+                <button class="btn btn-success btn-lg w-100" @click="showStory">
                     Ver história
                 </button>
             </div>
@@ -136,14 +136,13 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-@import "../../sass/custom";
 
 .quiz-component {
-    margin: 20px;
+    margin: 10px;
     max-width: 900px;
 }
 
 .quiz-question {
-    margin: 40px 10px 30px 10px;
+    margin: 10px 10px 30px 10px;
 }
 </style>

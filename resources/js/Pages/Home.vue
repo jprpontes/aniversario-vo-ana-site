@@ -2,54 +2,73 @@
 // import Layout from './Layout'
 import { Head } from "@inertiajs/vue3";
 import Ranking from "./Ranking.vue";
+import Plan from "./Plan.vue";
+import Divider from "./Divider.vue";
+import { nextTick, onMounted, reactive } from "vue";
+
+const data = reactive({
+    buyModal: {
+        open: false,
+        amount: 0,
+    },
+});
+
+const openBuyModal = (amount) => {
+    data.buyModal.open = true;
+    data.buyModal.amount = amount;
+    nextTick(() => {
+        const myModalEl = document.getElementById("buy-modal");
+        myModalEl.addEventListener("hidden.bs.modal", (event) => {
+            data.buyModal.open = false;
+        });
+
+        var myModal = new bootstrap.Modal($("#buy-modal"), {});
+        myModal.show();
+    });
+};
+
+const copyToClipboard = (element) => {
+    $(element).select();
+    document.execCommand("copy");
+};
+
+onMounted(() => {
+    //
+});
 </script>
 
 <template>
     <div>
-        <Head title="Aniversário Ana Maria Pontes" />
+        <Head title="Níver vó Ana" />
         <header>
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        <h1 class="text-center text-secondary">
-                            Vamos juntos comemorar mais um aniversário dessa
-                            pessoa tão especial, nossa vó Ana!
-                        </h1>
-                    </div>
-                    <div class="col-auto mx-auto">
-                        <!-- <svg
-                            preserveAspectRatio="xMidYMid meet"
-                            data-bbox="5.976 15.803 188.024 168.532"
-                            viewBox="5.976 15.803 188.024 168.532"
-                            height="300"
-                            width="300"
-                            xmlns="http://www.w3.org/2000/svg"
-                            data-type="color"
-                            role="presentation"
-                            aria-hidden="true"
-                            class="baloon-1"
-                        >
-                            <g>
-                                <path
-                                    d="M91.052 173.189C119.033 208.059 194 154.166 194 107.109 194 72.067 160 19 113.041 16 71.147 13.324 9.093 38.026 6.094 86.084S58 132 91.052 173.189z"
-                                    data-color="1"
-                                ></path>
-                            </g>
-                        </svg> -->
+                    <div class="col-12">
+                        <h5 class="text-center text-secondary">18 DE AGOSTO</h5>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center fw-bold feliz-aniversario">
+                            FELIZ ANIVERSÁRIO
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="text-center text-secondary">
+                            Ana Maria Pontes (Vó Ana)
+                        </h4>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-4 mx-auto">
+                        <img src="/img/vovo.png" class="img-fluid" />
+                    </div>
+                </div> -->
             </div>
         </header>
-        <svg
-            viewBox="0 0 500 70"
-            preserveAspectRatio="xMinYMin meet"
-            class="curve-1"
-        >
-            <path
-                d="M0,50 C250,100 250,0 500,50 L500,00 L0,0 Z"
-                style="stroke: none"
-            ></path>
-        </svg>
+        <Divider direction="UP" color="#f5f5f5" />
         <section class="ranking-section pb-5">
             <div class="container">
                 <div class="row">
@@ -62,16 +81,20 @@ import Ranking from "./Ranking.vue";
                         <div class="row">
                             <div class="col">
                                 <p>
-                                    Mostre que você conhece tudo sobre a família
-                                    neste quiz com histórias incríveis.
+                                    Será que você sabe tudo sobre Ana Maria
+                                    Pontes, nossa querida vó Ana? Prove que você
+                                    já a conhece bem e aprenda mais neste jogo
+                                    de perguntas e respostas.
                                 </p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-auto">
+                            <div
+                                class="col-12 col-md-auto el-quiz-container col-btn-acessar-quiz"
+                            >
                                 <a
                                     href="#/quiz"
-                                    class="btn btn-secondary btn-lg w-100 text-white btn-quiz btn-go-to-quiz"
+                                    class="btn btn-secondary btn-lg w-100 text-white btn-go-to-quiz"
                                 >
                                     ACESSAR O QUIZ
                                 </a>
@@ -86,16 +109,7 @@ import Ranking from "./Ranking.vue";
                 </div>
             </div>
         </section>
-        <!-- <svg
-            viewBox="0 0 500 70"
-            preserveAspectRatio="xMinYMin meet"
-            class="curve-2"
-        >
-            <path
-                d="M0,50 C250,100 250,0 500,50 L500,00 L0,0 Z"
-                style="stroke: none"
-            ></path>
-        </svg> -->
+        <Divider direction="DOWN" color="#f5f5f5" />
         <section class="pb-4">
             <div class="container">
                 <div class="row">
@@ -104,111 +118,43 @@ import Ranking from "./Ranking.vue";
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-auto mb-4">
-                        <div
-                            class="card mb-4 rounded-3 shadow-sm"
-                            style="width: 18rem"
-                        >
-                            <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Plano São</h4>
-                            </div>
-                            <img
-                                src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                alt="..."
-                            />
-                            <div class="card-body">
-                                <h1 class="card-title pricing-card-title">
-                                    R$ 100<small
-                                        class="text-body-secondary fw-light"
-                                        >,00</small
-                                    >
-                                </h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>20 users included</li>
-                                    <li>10 GB of storage</li>
-                                    <li>Priority email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                                <!-- <button
-                                    type="button"
-                                    class="w-100 btn btn-lg btn-primary"
-                                >
-                                    Get started
-                                </button> -->
-                            </div>
-                        </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <Plan
+                            name="São"
+                            :amount="100"
+                            :includedIn="[
+                                'Sítio',
+                                'Comida',
+                                'Churrasco',
+                                'Sem chope',
+                            ]"
+                            @buy="openBuyModal(100)"
+                        />
                     </div>
-                    <div class="col-auto mb-4">
-                        <div
-                            class="card mb-4 rounded-3 shadow-sm"
-                            style="width: 18rem"
-                        >
-                            <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Plano Bebum</h4>
-                            </div>
-                            <img
-                                src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                alt="..."
-                            />
-                            <div class="card-body">
-                                <h1 class="card-title pricing-card-title">
-                                    R$ 100<small
-                                        class="text-body-secondary fw-light"
-                                        >,00</small
-                                    >
-                                </h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>20 users included</li>
-                                    <li>10 GB of storage</li>
-                                    <li>Priority email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                                <!-- <button
-                                    type="button"
-                                    class="w-100 btn btn-lg btn-primary"
-                                >
-                                    Get started
-                                </button> -->
-                            </div>
-                        </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <Plan
+                            name="Pinguço"
+                            :amount="160"
+                            :includedIn="[
+                                'Sítio',
+                                'Comida',
+                                'Churrasco',
+                                'Chope',
+                            ]"
+                            @buy="openBuyModal(160)"
+                        />
                     </div>
-                    <div class="col-auto mb-4">
-                        <div
-                            class="card mb-4 rounded-3 shadow-sm"
-                            style="width: 18rem"
-                        >
-                            <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Plano Kids</h4>
-                            </div>
-                            <img
-                                src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png"
-                                alt="..."
-                            />
-                            <div class="card-body">
-                                <h1 class="card-title pricing-card-title">
-                                    R$ 100<small
-                                        class="text-body-secondary fw-light"
-                                        >,00</small
-                                    >
-                                </h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>20 users included</li>
-                                    <li>10 GB of storage</li>
-                                    <li>Priority email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                                <!-- <button
-                                    type="button"
-                                    class="w-100 btn btn-lg btn-primary"
-                                >
-                                    Get started
-                                </button> -->
-                            </div>
-                        </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <Plan
+                            name="Criança até 9 anos"
+                            :amount="0"
+                            :includedIn="['Sítio', 'Comida', 'Churrasco']"
+                        />
                     </div>
                 </div>
             </div>
         </section>
+        <Divider direction="UP" color="#f5f5f5" />
         <section class="location-section">
             <div class="container-fluid p-0">
                 <div class="row">
@@ -236,7 +182,110 @@ import Ranking from "./Ranking.vue";
                 </div>
             </div>
         </section>
-        <footer></footer>
+        <!-- <footer></footer> -->
+        <div
+            v-if="data.buyModal.open"
+            class="modal fade"
+            id="buy-modal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Forma de Pagamento PIX</h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="banco" class="form-label"
+                                        >Valor por pessoa</label
+                                    >
+                                    <div class="input-group mb-3">
+                                        <input
+                                            type="text"
+                                            id="amount"
+                                            class="form-control"
+                                            :value="`R$ ${data.buyModal.amount},00`"
+                                            readonly
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="banco" class="form-label"
+                                        >Banco</label
+                                    >
+                                    <div class="input-group mb-3">
+                                        <input
+                                            type="text"
+                                            id="banco"
+                                            class="form-control"
+                                            value="NU PAGAMENTOS - IP"
+                                            readonly
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="titular" class="form-label"
+                                        >Nome</label
+                                    >
+                                    <div class="input-group mb-3">
+                                        <input
+                                            type="text"
+                                            id="titular"
+                                            class="form-control"
+                                            value="JOAO PAULO RIBEIRO PONTES 11597613614"
+                                            readonly
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="chave-pix" class="form-label"
+                                        >Chave PIX</label
+                                    >
+                                    <div class="input-group mb-3">
+                                        <input
+                                            type="text"
+                                            id="chave-pix"
+                                            class="form-control"
+                                            value="43.347.133/0001-41"
+                                            readonly
+                                        />
+                                        <button
+                                            class="btn btn-outline-secondary"
+                                            type="button"
+                                            id="btn-copy"
+                                            @click="
+                                                copyToClipboard('#chave-pix')
+                                            "
+                                        >
+                                            Copiar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary text-white"
+                            data-bs-dismiss="modal"
+                        >
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -244,10 +293,7 @@ import Ranking from "./Ranking.vue";
 @import "../../sass/variables";
 
 header {
-    background-color: $primary;
-    /* margin-top: 56px; */
-    position: relative;
-    height: 400px;
+    height: 300px;
     display: flex;
     align-items: center;
 }
@@ -277,7 +323,7 @@ footer {
 
 .ranking-section {
     position: relative;
-    background-color: $bg-white-1;
+    background-color: $bg-white-2;
 }
 
 .ranking-container {
@@ -286,13 +332,17 @@ footer {
 }
 
 .location-section {
-    background-color: $bg-white-1;
+    background-color: $bg-white-2;
 }
 
 .btn-go-to-quiz {
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+.feliz-aniversario {
+    color: $info;
 }
 
 .gmap_canvas {
@@ -303,5 +353,23 @@ footer {
 #gmap_canvas {
     width: 100%;
     height: 20rem;
+}
+
+#banco {
+    color: #673ab7;
+}
+
+#banco,
+#titular,
+#chave-pix,
+#amount {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .col-btn-acessar-quiz {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 </style>

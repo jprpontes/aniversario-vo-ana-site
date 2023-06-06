@@ -1,6 +1,9 @@
 import _ from "lodash";
 window._ = _;
 
+import $ from "jquery";
+window.$ = $;
+
 import moment from "moment";
 window.moment = moment;
 
@@ -39,7 +42,10 @@ window.axios.interceptors.response.use(
 
 import * as Popper from "@popperjs/core";
 window.Popper = Popper;
-import "bootstrap";
+
+import * as Bootstrap from "bootstrap";
+window.bootstrap = Bootstrap;
+
 import "../sass/app.scss";
 import 'animate.css';
 

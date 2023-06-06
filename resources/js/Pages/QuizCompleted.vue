@@ -60,7 +60,7 @@ onMounted(() => {
             <div class="col-12 col-md-6 mx-auto my-2 el-quiz-container">
                 <a
                     href="#/"
-                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white btn-back-home"
+                    class="btn btn-lg btn-secondary w-100 text-white btn-back-home"
                 >
                     VOLTAR PARA A PÁGINA PRINCIPAL
                 </a>
@@ -71,7 +71,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-@import "../../sass/custom";
 
 .quiz-auth {
     max-width: 900px;

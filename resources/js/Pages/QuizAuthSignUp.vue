@@ -131,7 +131,7 @@ onMounted(() => {
         <div class="row">
             <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white"
+                    class="btn btn-lg btn-secondary w-100 text-white"
                     @click="signup"
                 >
                     CRIAR JOGADOR
@@ -141,7 +141,7 @@ onMounted(() => {
         <div class="row">
             <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-link text-secondary w-100 btn-quiz"
+                    class="btn btn-lg btn-link text-secondary w-100"
                     @click="back"
                 >
                     VOLTAR
@@ -153,7 +153,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-@import "../../sass/custom";
 
 .quiz-auth {
     max-width: 900px;

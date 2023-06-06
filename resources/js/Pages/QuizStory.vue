@@ -38,7 +38,7 @@ onMounted(() => {
         <div class="row">
             <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-secondary w-100 btn-quiz text-white"
+                    class="btn btn-lg btn-secondary w-100 text-white"
                     @click="nextQuestion"
                 >
                     PRÓXIMA QUESTÃO
@@ -50,7 +50,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-@import "../../sass/custom";
 
 .quiz-auth {
     max-width: 900px;

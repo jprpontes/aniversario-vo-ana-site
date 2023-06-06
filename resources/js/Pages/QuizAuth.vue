@@ -25,7 +25,10 @@ onMounted(() => {
 <template>
     <div class="container quiz-auth mx-auto" v-if="data.state == step.INIT">
         <div class="row">
-            <div class="col-auto">
+            <div class="col-auto p-0">
+                <img src="/img/vovo.png" class="img-fluid img-vovo" alt="">
+            </div>
+            <div class="col-auto p-0 d-flex align-items-center">
                 <h1 class="title">QUIZ DA VOVÓ</h1>
             </div>
         </div>
@@ -41,7 +44,7 @@ onMounted(() => {
         <div class="row">
             <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-secondary btn-quiz w-100 text-white"
+                    class="btn btn-lg btn-secondary w-100 text-white"
                     @click="changeStep($event, step.SIGNUP)"
                 >
                     NOVO JOGADOR
@@ -51,7 +54,7 @@ onMounted(() => {
         <div class="row">
             <div class="col-12 col-md-4 mx-auto my-2 el-quiz-container">
                 <button
-                    class="btn btn-lg btn-outline-secondary btn-quiz w-100"
+                    class="btn btn-lg btn-outline-secondary w-100"
                     @click="changeStep($event, step.LOGIN)"
                 >
                     JÁ TENHO CONTA
@@ -71,14 +74,17 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-@import "../../sass/custom";
+
+.img-vovo {
+    width: 100px;
+}
 
 .quiz-auth {
     max-width: 900px;
 }
 
 .title {
-    margin: 50px 10px 10px 10px;
+    margin: 0px;
 }
 
 .subtitle {
