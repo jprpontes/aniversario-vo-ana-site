@@ -44,7 +44,7 @@ onMounted(() => {
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h5 class="text-center text-secondary">18 DE AGOSTO</h5>
+                        <h5 class="text-center text-secondary">25, 26 e 27 DE AGOSTO</h5>
                     </div>
                 </div>
                 <div class="row">
