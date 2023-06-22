@@ -78,7 +78,7 @@ class QuizController extends Controller
 
         return $this->sendResponse('Resposta salva!', [
             'correctAnswer' => AnswerResource::make($question->correctAnswer),
-            'story'         => StoryResource::make($question->story)
+            'story'         => $question->story_id ? StoryResource::make($question->story) : null
         ]);
     }
 

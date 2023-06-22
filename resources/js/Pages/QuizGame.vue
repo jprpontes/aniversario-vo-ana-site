@@ -126,8 +126,11 @@ onMounted(() => {
         </div>
         <div class="row" v-else-if="data.state == step.QUESTION_RESULT">
             <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
-                <button class="btn btn-success btn-lg w-100" @click="showStory">
-                    Ver história
+                <button v-if="data?.question?.hasStory" class="btn btn-success btn-lg w-100" @click="showStory">
+                    VER HISTÓRIA
+                </button>
+                <button v-else class="btn btn-secondary btn-lg w-100 text-white" @click="nextQuestion">
+                    PRÓXIMA QUESTÃO
                 </button>
             </div>
         </div>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('description')->nullable(false);
             $table->integer('points')->nullable(false);
-            $table->unsignedBigInteger('story_id')->nullable(false);
+            $table->unsignedBigInteger('story_id')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
 

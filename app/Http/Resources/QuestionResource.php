@@ -17,7 +17,8 @@ class QuestionResource extends JsonResource
         return [
             'id'          => $this->id,
             'description' => $this->description,
-            'answers'     => AnswerResource::collection($this->answers),
+            'hasStory'    => $this->story_id ? true : false,
+            'answers'     => AnswerResource::collection($this->answers->shuffle()),
         ];
     }
 }
