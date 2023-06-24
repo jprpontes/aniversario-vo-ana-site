@@ -242,7 +242,7 @@ onMounted(() => {
                                             type="text"
                                             id="titular"
                                             class="form-control"
-                                            value="JOAO PAULO RIBEIRO PONTES 11597613614"
+                                            value="JOAO PAULO RIBEIRO PONTES 11597613614 ou PASBE"
                                             readonly
                                         />
                                     </div>
