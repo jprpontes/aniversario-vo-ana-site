@@ -321,7 +321,7 @@ class StoreQuestionsCommand extends Command
                         "O casamento",
                         "Primeira comunhão",
                         "Crisma",
-                        "Os 18 anos (quando fundou o Pirate Bay)",
+                        "Os 18 anos",
                         "Copa do mundo de 1970"
                     ]
             ],

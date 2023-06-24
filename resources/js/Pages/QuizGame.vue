@@ -3,6 +3,7 @@ import { onMounted, reactive } from "vue";
 import QuizAnswer from "./QuizAnswer.vue";
 import QuizCompleted from "./QuizCompleted.vue";
 import QuizStory from "./QuizStory.vue";
+import QuizProgress from "./QuizProgress.vue";
 
 const step = {
     QUESTION: "question",
@@ -18,6 +19,7 @@ const changeStep = (e, newState) => {
 const data = reactive({
     state: step.QUESTION,
     question: null,
+    progress: null,
     story: null,
     correctAnswer: null,
     selectedAnswer: null,
@@ -38,6 +40,7 @@ const getQuestion = async () => {
         }
 
         data.question = response.data.data.question;
+        data.progress = response.data.data.progress;
     } catch (error) {
         console.error(error);
     }
@@ -95,6 +98,11 @@ onMounted(() => {
         class="container quiz-component mx-auto"
     >
         <div class="row">
+            <div class="col-12">
+                <QuizProgress class="animate__animated animate__bounceInLeft" :total="data.progress?.total" :completed="data.progress?.completed" />
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <h2 class="quiz-question animate__animated animate__bounceInLeft">{{ data.question?.description }}</h2>
             </div>
@@ -120,7 +128,7 @@ onMounted(() => {
         >
             <div class="col-12 col-md-3 ms-auto m-3 el-quiz-container">
                 <button class="btn btn-success btn-lg w-100" @click="confirm">
-                    Confirmar
+                    CONFIRMAR
                 </button>
             </div>
         </div>

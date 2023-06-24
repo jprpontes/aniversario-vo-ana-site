@@ -46,7 +46,7 @@ const login = async () => {
 
     try {
         const response = await axios.post("/sanctum/token", {
-            nickname: data.login.nickname,
+            nickname: data.login.nickname.toString().toLowerCase(),
             date_of_birth: formatDateOfBirth(data.login.date_of_birth),
         });
         store.dispatch("signIn", {
@@ -86,8 +86,10 @@ onMounted(() => {
             <div class="col-12 col-md-4 mx-auto my-1 el-quiz-container">
                 <input
                     type="text"
-                    class="form-control form-control-lg input-quiz"
+                    class="form-control form-control-lg input-quiz input-nickname"
                     placeholder="Apelido"
+                    v-mask="'XXXXXXXXXXXXXXXXXXXXXXXXX'"
+                    max="25"
                     v-model="data.login.nickname"
                 />
             </div>
@@ -148,5 +150,9 @@ onMounted(() => {
     margin: 10px 10px 50px 10px;
     font-weight: normal;
     font-size: 22px;
+}
+
+.input-nickname {
+    text-transform: lowercase;
 }
 </style>

@@ -56,8 +56,8 @@ const getOption = (index) => {
 }
 
 .answer-option {
-    width: 31px;
-    height: 31px;
+    min-width: 31px;
+    min-height: 31px;
     /* border-top-left-radius: 10px;
     border-bottom-left-radius: 10px; */
     border-radius: 100%;

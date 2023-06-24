@@ -60,7 +60,7 @@ onMounted(() => {
     /* height: 100vh; */
     display: flex;
     /* align-items: center; */
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 .effect-enter-active {
     transition: all 0.3s ease-out;

@@ -37,7 +37,15 @@ class QuizController extends Controller
 
         $question = Question::find($questionId);
 
-        return $this->sendResponse('Questão retornada com sucesso!', ['question' => QuestionResource::make($question)]);
+        $totalCountQuestions = Question::count();
+
+        return $this->sendResponse('Questão retornada com sucesso!', [
+            'progress' => [
+                'total'     => $totalCountQuestions,
+                'completed' => $totalCountQuestions - $countQuestions
+            ],
+            'question' => QuestionResource::make($question)
+        ]);
     }
 
     public function story(int $question_id)
